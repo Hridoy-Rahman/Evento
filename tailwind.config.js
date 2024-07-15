@@ -11,5 +11,16 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      addUtilities({
+        '.text-gradient': {
+          'background-image': 'linear-gradient(to bottom, #6600cc 0%, #990099 100%)',
+          'background-clip': 'text',
+          '-webkit-background-clip': 'text',
+          'color': 'transparent',
+        },
+      });
+    },
+  ],
 }
