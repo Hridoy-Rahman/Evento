@@ -8,7 +8,7 @@ const About = () => {
       </h2>
       <div className="bg-banner-gradient space-y-7 pl-12 px-4 w-full lg:w-3/4 lg:mx-auto rounded-lg lg:px-12 mt-12 mb-12">
         <div className="flex flex-col-reverse lg:flex-row-reverse p-4 gap-6 items-center">
-          <div className="text-lg lg:text-xl font-semibold">
+          <div className="text-sm  font-semibold">
             <p className="text-gradient">
               Welcome to Evento, your go-to for exceptional event management. We
               turn your vision into unforgettable experiences with precision and

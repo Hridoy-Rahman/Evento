@@ -31,10 +31,10 @@ const Events = ({ limit }) => {
       <p className="text-xl text-gradient font-semibold text-center mt-4 mb-12">
         Register to your desired event
       </p>
-      <Carousel showThumbs={false} infiniteLoop useKeyboardArrows autoPlay>
+      <Carousel showThumbs={false} infiniteLoop useKeyboardArrows autoPlay className="w-full lg:w-3/4 lg:mx-auto">
         {displayedEvents.map((event) => (
           <div key={event.event_id} className="p-4">
-            <div className="space-y-7 pl-12 px-4 w-full lg:w-3/4 lg:mx-auto rounded-lg lg:px-12 bg-banner-gradient flex flex-col">
+            <div className="space-y-7 pl-12 px-4  rounded-lg lg:px-12 bg-banner-gradient flex flex-col">
               <img
                 src={event.event_banner_picture}
                 alt={event.title}
