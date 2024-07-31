@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 
-const Events = ({ limit }) => {
+const AllEvents = ({ limit }) => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -24,14 +24,14 @@ const Events = ({ limit }) => {
   const displayedEvents = limit ? events.slice(0, limit) : events;
 
   return (
-    <div>
+    <div className="mb-12 lg:mb-8 ">
       <h1 className="text-5xl text-gradient font-bold text-center mt-8">
-        Upcoming Events
+        All Upcomming Events
       </h1>
       <p className="text-xl text-gradient font-semibold text-center mt-4 mb-12">
         Register to your desired event
       </p>
-      <Carousel showThumbs={false} infiniteLoop useKeyboardArrows autoPlay className="w-full lg:w-3/4 lg:mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-3 ">
         {displayedEvents.map((event) => (
           <div key={event._id} className="p-4">
             <div className="space-y-7 pl-12 px-4 py-4  rounded-lg lg:px-12 bg-banner-gradient flex flex-col items-center">
@@ -68,9 +68,9 @@ const Events = ({ limit }) => {
             </div>
           </div>
         ))}
-      </Carousel>
+      </div>
     </div>
   );
 };
 
-export default Events;
+export default AllEvents;

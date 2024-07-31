@@ -28,7 +28,7 @@ const About = () => {
           <div className="h-full">
             <img
               className="rounded-xl"
-              src="/public/about us.png"
+              src="/about us.png"
               alt="About Us"
             />
           </div>

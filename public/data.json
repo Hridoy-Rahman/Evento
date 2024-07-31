@@ -16,7 +16,8 @@
       "venue": "University Main Hall",
       "address": "123 University Ave, Tech City",
       "contact_no": "+1 234 567 8901",
-      "contact_email": "info@techsymposium.com"
+      "contact_email": "info@techsymposium.com",
+      "available_seats": "123"
     },
     {
       "event_id": "E002",
@@ -35,7 +36,8 @@
       "venue": "Student Center",
       "address": "456 Career St, Job Town",
       "contact_no": "+1 345 678 9012",
-      "contact_email": "careerfair@careeruniversity.com"
+      "contact_email": "careerfair@careeruniversity.com",
+      "available_seats": "500"
     },
     {
       "event_id": "E003",
@@ -54,7 +56,8 @@
       "venue": "Art Gallery",
       "address": "789 Art Blvd, Creativity City",
       "contact_no": "+1 456 789 0123",
-      "contact_email": "artexhibition@artsuniversity.com"
+      "contact_email": "artexhibition@artsuniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E004",
@@ -73,7 +76,8 @@
       "venue": "Room 202, Health Sciences Building",
       "address": "101 Health Dr, Wellness City",
       "contact_no": "+1 567 890 1234",
-      "contact_email": "wellness@healthsciencesuniversity.com"
+      "contact_email": "wellness@healthsciencesuniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E005",
@@ -92,7 +96,8 @@
       "venue": "Alumni Hall",
       "address": "202 Alumni Ln, Reunion City",
       "contact_no": "+1 678 901 2345",
-      "contact_email": "alumni@alumniuniversity.com"
+      "contact_email": "alumni@alumniuniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E006",
@@ -111,7 +116,8 @@
       "venue": "Eco Center",
       "address": "303 Green St, Eco City",
       "contact_no": "+1 789 012 3456",
-      "contact_email": "sustainability@greenuniversity.com"
+      "contact_email": "sustainability@greenuniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E007",
@@ -130,7 +136,8 @@
       "venue": "Open Grounds",
       "address": "404 Harmony Rd, Melody Town",
       "contact_no": "+1 890 123 4567",
-      "contact_email": "musicfest@musicuniversity.com"
+      "contact_email": "musicfest@musicuniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E008",
@@ -149,7 +156,8 @@
       "venue": "Conference Center",
       "address": "505 Business Ave, Corporate City",
       "contact_no": "+1 901 234 5678",
-      "contact_email": "leadership@businessuniversity.com"
+      "contact_email": "leadership@businessuniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E009",
@@ -168,7 +176,8 @@
       "venue": "Film Hall",
       "address": "606 Cinema Ln, Movie City",
       "contact_no": "+1 012 345 6789",
-      "contact_email": "filmfest@filmuniversity.com"
+      "contact_email": "filmfest@filmuniversity.com",
+      "available_seats": "150"
     },
     {
       "event_id": "E010",
@@ -187,7 +196,8 @@
       "venue": "Innovation Lab",
       "address": "707 Tech Dr, Innovation City",
       "contact_no": "+1 234 567 8900",
-      "contact_email": "hackathon@techuniversity.com"
+      "contact_email": "hackathon@techuniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E011",
@@ -206,7 +216,8 @@
       "venue": "Visual Arts Hall",
       "address": "808 Picture Ln, Snap City",
       "contact_no": "+1 345 678 1234",
-      "contact_email": "photocontest@visualartsuniversity.com"
+      "contact_email": "photocontest@visualartsuniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E012",
@@ -225,7 +236,8 @@
       "venue": "Cultural Grounds",
       "address": "909 Culture St, Diversity City",
       "contact_no": "+1 456 789 2345",
-      "contact_email": "culturalfest@culturaluniversity.com"
+      "contact_email": "culturalfest@culturaluniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E013",
@@ -244,7 +256,8 @@
       "venue": "Engineering Lab",
       "address": "1010 Innovation Dr, Tech City",
       "contact_no": "+1 567 890 3456",
-      "contact_email": "robotics@engineeringuniversity.com"
+      "contact_email": "robotics@engineeringuniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E014",
@@ -263,7 +276,8 @@
       "venue": "Business Incubator",
       "address": "1111 Startup St, Innovation Hub",
       "contact_no": "+1 678 901 4567",
-      "contact_email": "bootcamp@businessschool.com"
+      "contact_email": "bootcamp@businessschool.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E015",
@@ -282,7 +296,8 @@
       "venue": "Library Hall",
       "address": "1212 Book Rd, Story City",
       "contact_no": "+1 789 012 5678",
-      "contact_email": "litfest@literatureuniversity.com"
+      "contact_email": "litfest@literatureuniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E016",
@@ -301,7 +316,8 @@
       "venue": "Local Beach",
       "address": "1313 Ocean Rd, Beach Town",
       "contact_no": "+1 890 123 6789",
-      "contact_email": "cleanup@greenearthuniversity.com"
+      "contact_email": "cleanup@greenearthuniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E017",
@@ -320,7 +336,8 @@
       "venue": "Tech Auditorium",
       "address": "1414 AI Rd, Techno City",
       "contact_no": "+1 901 234 7890",
-      "contact_email": "aiml@techinstitute.com"
+      "contact_email": "aiml@techinstitute.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E018",
@@ -339,7 +356,8 @@
       "venue": "City Park",
       "address": "1515 Run Rd, Fitness City",
       "contact_no": "+1 012 345 8901",
-      "contact_email": "charityrun@fitnessuniversity.com"
+      "contact_email": "charityrun@fitnessuniversity.com",
+      "available_seats": "100"
     },
     {
       "event_id": "E019",
@@ -358,7 +376,8 @@
       "venue": "Science Hall",
       "address": "1616 Experiment Rd, Discovery City",
       "contact_no": "+1 123 456 7890",
-      "contact_email": "sciencefair@scienceuniversity.com"
+      "contact_email": "sciencefair@scienceuniversity.com",
+      "available_seats": "No limit"
     },
     {
       "event_id": "E020",
@@ -377,7 +396,8 @@
       "venue": "Music Arena",
       "address": "1717 Melody Ln, Harmony City",
       "contact_no": "+1 234 567 8901",
-      "contact_email": "musicfest@musicuniversity.com"
+      "contact_email": "musicfest@musicuniversity.com",
+      "available_seats": "No limit"
     }
   ]
   

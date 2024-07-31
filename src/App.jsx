@@ -1,20 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Banner from './Pages/Home Page/Banner'
-import Home from './Pages/Home Page/Home'
+import React from 'react';
+import { BrowserRouter as Router, Route,  } from 'react-router-dom';
+import Events from './Pages/Home Page/Events/Events';
+import EventDetails from './Pages/Home Page/Events/EventDetails';
 
-function App() {
-  const [count, setCount] = useState(0)
 
+const App = () => {
   return (
-    <>
-     <div>
-     <Home/>
-     </div>
-    </>
-  )
-}
+    <></>
+  );
+};
 
-export default App
+export default App;
