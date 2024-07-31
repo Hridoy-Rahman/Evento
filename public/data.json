@@ -182,7 +182,7 @@
     {
       "event_id": "E010",
       "title": "Hackathon 2024",
-      "category": "Competition",
+      "category": "Contest",
       "event_banner_picture": "./4.png",
       "university_name": "Tech University",
       "events": ["Coding Competition", "Workshops", "Networking"],

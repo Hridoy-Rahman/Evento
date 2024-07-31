@@ -24,7 +24,7 @@ const AllEvents = ({ limit }) => {
   const displayedEvents = limit ? events.slice(0, limit) : events;
 
   return (
-    <div className="mb-12 lg:mb-8 ">
+    <div className="mb-12 lg:mb-8 px-4 lg:px-12">
       <h1 className="text-5xl text-gradient font-bold text-center mt-8">
         All Upcomming Events
       </h1>
@@ -34,7 +34,7 @@ const AllEvents = ({ limit }) => {
       <div className="grid grid-cols-1 lg:grid-cols-3 ">
         {displayedEvents.map((event) => (
           <div key={event._id} className="p-4">
-            <div className="space-y-7 pl-12 px-4 py-4  rounded-lg lg:px-12 bg-banner-gradient flex flex-col items-center">
+            <div className="space-y-7 pl-12 px-4 py-4  rounded-lg lg:px-12 bg-banner-gradient flex flex-col items-center h-full">
               <img
                 src={event.event_banner_picture}
                 alt={event.title}

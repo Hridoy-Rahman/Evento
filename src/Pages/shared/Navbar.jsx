@@ -6,6 +6,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const Navbar = () => {
     const { user, logOut, signedUser } = useContext(AuthContext);
     const [hovered, setHovered] = useState(false);
+    // console.log(user)
 
     const handleLogout = () => {
         logOut()
@@ -30,7 +31,7 @@ const Navbar = () => {
                         <Link to="/createevent">Create Event</Link>
                     </li>
                     <li className='px-4 text-purple-800 font-semibold hover:text-purple-500'>
-                        <Link to={`/myevent/${user.user_email}`}>My Event</Link>
+                        <Link to={`/myevent`}>My Event</Link>
                     </li>
                     <li className='px-4 text-purple-800 font-semibold hover:text-purple-500'>
                         <button onClick={handleLogout}>Log Out</button>
@@ -47,7 +48,7 @@ const Navbar = () => {
   
 
     return (
-        <div className='flex justify-between items-center mx-4 bg-banner-gradient px-2 py-2 sticky top-0 rounded mb-8 lg:mb-12'>
+        <div className='flex justify-between items-center  bg-banner-gradient px-2 py-2 sticky top-0 rounded mb-8 lg:mb-12'>
             <div>
                 <a href="/"><img src="/logo.png" alt="" className='h-10 w-32 rounded-lg' /></a>
             </div>
