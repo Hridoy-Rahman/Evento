@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Swal from 'sweetalert2';
-
+import UpdateEventModal from "./UpdateEventModal";
 const MyEvents = () => {
   const [events, setEvents] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { user } = useContext(AuthContext);
   const userEmail = user.email; // Use the logged-in user's email
 
@@ -31,58 +33,70 @@ const MyEvents = () => {
 
   const handleDelete = async (id) => {
     try {
-        // Show confirmation dialog
-        const result = await Swal.fire({
-            title: 'Are you sure you want to delete?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+      // Show confirmation dialog
+      const result = await Swal.fire({
+        title: 'Are you sure you want to delete?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      });
+
+      if (result.isConfirmed) {
+        // Send delete request
+        const response = await fetch(`http://localhost:8000/events/${id}`, {
+          method: 'DELETE',
         });
 
-        if (result.isConfirmed) {
-            // Send delete request
-            const response = await fetch(`http://localhost:8000/events/${id}`, {
-                method: 'DELETE',
-            });
-
-            if (!response.ok) {
-                // Handle non-200 status codes
-                const errorText = await response.text();
-                console.error('Error response:', errorText);
-                throw new Error('Failed to delete the event');
-            }
-
-            const data = await response.json();
-            console.log(data);
-
-            if (data.message === 'Event deleted successfully') {
-                // Remove the deleted event from state
-                const remainingEvents = events.filter(event => event._id !== id);
-                setEvents(remainingEvents);
-
-                // Show success alert
-                Swal.fire(
-                    'Deleted!',
-                    'Your event has been deleted.',
-                    'success'
-                );
-            } else {
-                throw new Error(data.message);
-            }
+        if (!response.ok) {
+          // Handle non-200 status codes
+          const errorText = await response.text();
+          console.error('Error response:', errorText);
+          throw new Error('Failed to delete the event');
         }
+
+        const data = await response.json();
+        console.log(data);
+
+        if (data.message === 'Event deleted successfully') {
+          // Remove the deleted event from state
+          const remainingEvents = events.filter(event => event._id !== id);
+          setEvents(remainingEvents);
+
+          // Show success alert
+          Swal.fire(
+            'Deleted!',
+            'Your event has been deleted.',
+            'success'
+          );
+        } else {
+          throw new Error(data.message);
+        }
+      }
     } catch (error) {
-        console.error('Error deleting event:', error);
-        Swal.fire(
-            'Error!',
-            'There was a problem deleting the event.',
-            'error'
-        );
+      console.error('Error deleting event:', error);
+      Swal.fire(
+        'Error!',
+        'There was a problem deleting the event.',
+        'error'
+      );
     }
-};
+  };
 
+  const handleEdit = (event) => {
+    setSelectedEvent(event);
+    setIsModalOpen(true);
+  };
 
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setSelectedEvent(null);
+  };
+
+  const handleUpdate = (updatedEvent) => {
+    setEvents(events.map(event => (event._id === updatedEvent._id ? updatedEvent : event)));
+  };
 
   return (
     <div className="mb-12 lg:mb-8 ">
@@ -118,15 +132,15 @@ const MyEvents = () => {
                 </p>
               </div>
               <div className="relative flex w-1/3 justify-between">
-                <Link
-                  to={`/events/edit/${event._id}`}
+                <button
+                  onClick={() => handleEdit(event)}
                   className="relative flex items-center justify-center text-purple-900 hover:text-purple-500 font-bold py-2 w-40 rounded"
                 >
                   <FaEdit className="text-2xl" />
                   <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 hidden group-hover:block bg-gray-800 text-white text-xs px-2 py-1 rounded">
                     Edit
                   </span>
-                </Link>
+                </button>
 
                 <button
                   onClick={() => handleDelete(event._id)}
@@ -142,6 +156,16 @@ const MyEvents = () => {
           </div>
         ))}
       </div>
+
+      {/* Edit Event Modal */}
+      {selectedEvent && (
+        <UpdateEventModal
+          isOpen={isModalOpen}
+          onRequestClose={handleModalClose}
+          event={selectedEvent}
+          onUpdate={handleUpdate}
+        />
+      )}
     </div>
   );
 };
