@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddEvent from "../Pages/AddEvent";
 import Register from "../Pages/EventRegister";
 import MyEvents from "../Pages/MyEvents";
+import RegisteredEvents from "../Pages/RegisteredEvent";
 
 
 const router = createBrowserRouter([
@@ -79,14 +80,7 @@ const router = createBrowserRouter([
           </>
         )
       },
-      {
-        path: "blog",
-        element: (
-          <>
-            
-          </>
-        )
-      },
+
       {
         path: 'register/:eventId',
         element: (
@@ -104,7 +98,16 @@ const router = createBrowserRouter([
           }
           return { event };
         }
-      }
+      },
+      {
+        path: "registeredevent",
+        element: (
+          <>
+            <PrivateRoute><RegisteredEvents/></PrivateRoute>
+          </>
+        )
+      },
+      
     ]
   }
 ]);

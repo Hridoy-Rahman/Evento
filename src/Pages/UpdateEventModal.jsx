@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import Swal from "sweetalert2";
+Modal.setAppElement('#root');
 
 const UpdateEventModal = ({ isOpen, onRequestClose, event, onUpdate }) => {
   const [updatedEvent, setUpdatedEvent] = useState(event);
@@ -56,7 +57,7 @@ const UpdateEventModal = ({ isOpen, onRequestClose, event, onUpdate }) => {
           Edit Event
         </h2>
         <form onSubmit={handleSubmit}>
-          <div className="flex justify-between gap-4">
+          <div className="flex flex-col lg:flex-row justify-between gap-4">
             <div className="w-full">
               <label className="block text-gray-700">Title</label>
               <input
@@ -143,8 +144,6 @@ const UpdateEventModal = ({ isOpen, onRequestClose, event, onUpdate }) => {
                 className="mt-1 mb-4 block w-full rounded-md border-gray-300 shadow-sm"
                 required
               />
-            </div>
-            <div className="w-full">
               <label className="block text-gray-700">
                 Registration form link
               </label>
@@ -157,6 +156,8 @@ const UpdateEventModal = ({ isOpen, onRequestClose, event, onUpdate }) => {
                 className="mt-1 mb-4 block w-full rounded-md border-gray-300 shadow-sm h-10"
                 required
               />
+            </div>
+            <div className="w-full">
               <label className="block text-gray-700">Registration Fee</label>
               <input
                 type="text"

@@ -38,6 +38,7 @@ const EventDetails = () => {
             <li key={index} className="text-xl text-gray-800">{ev}</li>
           ))}
         </ul>
+        <p className="text-xl text-gray-800 mb-4"><strong>Registration Form:</strong> <a href={`${event.registration_form_link}`} target="_blank">{event.registration_form_link}</a></p>
         <div className='flex justify-center'>
         <Link
           to={`/register/${event._id}`}
