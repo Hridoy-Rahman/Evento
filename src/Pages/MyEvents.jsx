@@ -3,7 +3,7 @@ import { AuthContext } from "../Providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import Swal from 'sweetalert2'; // Make sure you have this library installed
+import Swal from 'sweetalert2';
 
 const MyEvents = () => {
   const [events, setEvents] = useState([]);
@@ -30,8 +30,59 @@ const MyEvents = () => {
   }, [userEmail]);
 
   const handleDelete = async (id) => {
-    
-  };
+    try {
+        // Show confirmation dialog
+        const result = await Swal.fire({
+            title: 'Are you sure you want to delete?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        });
+
+        if (result.isConfirmed) {
+            // Send delete request
+            const response = await fetch(`http://localhost:8000/events/${id}`, {
+                method: 'DELETE',
+            });
+
+            if (!response.ok) {
+                // Handle non-200 status codes
+                const errorText = await response.text();
+                console.error('Error response:', errorText);
+                throw new Error('Failed to delete the event');
+            }
+
+            const data = await response.json();
+            console.log(data);
+
+            if (data.message === 'Event deleted successfully') {
+                // Remove the deleted event from state
+                const remainingEvents = events.filter(event => event._id !== id);
+                setEvents(remainingEvents);
+
+                // Show success alert
+                Swal.fire(
+                    'Deleted!',
+                    'Your event has been deleted.',
+                    'success'
+                );
+            } else {
+                throw new Error(data.message);
+            }
+        }
+    } catch (error) {
+        console.error('Error deleting event:', error);
+        Swal.fire(
+            'Error!',
+            'There was a problem deleting the event.',
+            'error'
+        );
+    }
+};
+
+
 
   return (
     <div className="mb-12 lg:mb-8 ">
@@ -67,7 +118,6 @@ const MyEvents = () => {
                 </p>
               </div>
               <div className="relative flex w-1/3 justify-between">
-                {/* Edit Button */}
                 <Link
                   to={`/events/edit/${event._id}`}
                   className="relative flex items-center justify-center text-purple-900 hover:text-purple-500 font-bold py-2 w-40 rounded"
@@ -78,7 +128,6 @@ const MyEvents = () => {
                   </span>
                 </Link>
 
-                {/* Delete Button */}
                 <button
                   onClick={() => handleDelete(event._id)}
                   className="relative flex items-center justify-center text-purple-900 hover:text-purple-500 font-bold py-2 w-40 rounded"
