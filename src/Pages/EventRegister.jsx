@@ -74,7 +74,7 @@ const Register = () => {
 
 
   return (
-    <div className="max-w-4xl mx-auto my-8 p-4 bg-banner-gradient shadow-md rounded-lg">
+    <div className="max-w-4xl mx-auto my-8 p-4 bg-gray-100 shadow-md rounded-lg">
       <h1 className="text-3xl font-bold text-gradient text-center mb-8">Register for {event.title}</h1>
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 gap-4">

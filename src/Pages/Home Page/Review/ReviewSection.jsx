@@ -16,7 +16,7 @@ const ReviewSection = () => {
 
   return (
     <div className="mt-8 mb-10">
-      <h1 className="text-5xl text-gradient font-bold text-center mb-8">
+      <h1 className="text-3xl text-gradient font-bold text-center mb-8">
         Reviews
       </h1>
       <ReviewList reviews={reviews} />

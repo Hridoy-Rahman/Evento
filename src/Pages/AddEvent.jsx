@@ -84,7 +84,7 @@ const AddEvent = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto my-8 p-4 bg-banner-gradient shadow-md rounded-lg">
+        <div className="max-w-4xl mx-auto my-8 p-4 bg-gray-100 shadow-lg rounded-lg">
             <h1 className="text-3xl font-bold text-gradient text-center mb-8">Create New Event</h1>
             <h1 className="text-xl font-bold text-red-500 text-center mb-8">*Please use your institutional email</h1>
             <form onSubmit={handleSubmit}>

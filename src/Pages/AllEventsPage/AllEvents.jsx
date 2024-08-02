@@ -28,7 +28,7 @@ const AllEvents = ({ limit }) => {
 
   return (
     <div className="mb-12 lg:mb-8 px-4 lg:px-12">
-      <h1 className="text-5xl text-gradient font-bold text-center mt-8">
+      <h1 className="text-3xl text-gradient font-bold text-center mt-8">
         All Upcoming Events
       </h1>
       <p className="text-xl text-gradient font-semibold text-center mt-4 mb-12">
@@ -46,7 +46,7 @@ const AllEvents = ({ limit }) => {
       <div className="grid grid-cols-1 lg:grid-cols-3 ">
         {filteredEvents.map((event) => (
           <div key={event._id} className="p-4">
-            <div className="space-y-7 pl-12 px-4 py-4 rounded-lg lg:px-12 bg-banner-gradient flex flex-col items-center h-full">
+            <div className="space-y-7 pl-12 px-4 py-4 rounded-lg lg:px-12 bg-gray-100 flex flex-col shadow-lg items-center h-full">
               <img
                 src={event.event_banner_picture}
                 alt={event.title}

@@ -34,13 +34,13 @@ const RegisteredEvents = () => {
 
   return (
     <div className="mb-12 lg:mb-8">
-      <h1 className="text-5xl text-gradient font-bold text-center mt-8 mb-12">
+      <h1 className="text-3xl text-gradient font-bold text-center mt-8 mb-12">
         Your Registered Events
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 lg:px-12">
         {events.map((event) => (
           <div key={event._id} className="p-4">
-            <div className="space-y-7 px-4 py-4 rounded-lg bg-banner-gradient flex flex-col items-center h-full">
+            <div className="space-y-7 px-4 py-4 rounded-lg bg-gray-100 flex flex-col items-center h-full">
               <img
                 src={event.event_banner_picture}
                 alt={event.title}

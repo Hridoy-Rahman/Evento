@@ -12,8 +12,8 @@ const EventDetails = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto my-8 p-4 shadow-xl bg-banner-gradient rounded-lg">
-      <h1 className="text-5xl font-bold text-gradient text-center mb-8">
+    <div className="max-w-4xl mx-auto my-8 p-4 shadow-xl bg-gray-100 rounded-lg">
+      <h1 className="text-3xl font-bold text-gradient text-center mb-8">
         {event.title}
       </h1>
       <img

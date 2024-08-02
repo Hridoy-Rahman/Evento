@@ -4,8 +4,9 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { FaBars, FaTimes, FaSignOutAlt, FaSignInAlt, FaUserPlus } from "react-icons/fa";
 
 const Navbar = () => {
-  const { user, logOut, signedUser } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [hovered, setHovered] = useState(false); // Added hovered state
 
   const handleLogout = () => {
     logOut()
@@ -59,7 +60,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex-shrink-0">
           <a href="/">
-            <img src="/logo.png" alt="Logo" className="h-10 w-32 rounded-lg" />
+            <img src="https://i.ibb.co/brRRbYs/Screenshot-2024-07-28-213559.png" alt="Logo" className="h-10 w-32 rounded-lg" />
           </a>
         </div>
 
@@ -100,14 +101,14 @@ const Navbar = () => {
               onMouseLeave={() => setHovered(false)}
               className="relative flex items-center"
             >
-              {signedUser?.photo ? (
+              {user?.photoURL ? (
                 <>
                   <img
                     className="h-8 w-8 rounded-full"
-                    src={signedUser.photo}
-                    alt={signedUser.name}
+                    src={user.photoURL}
+                    alt={user.name}
                   />
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white text-black text-xs rounded py-1 px-2 hidden group-hover:block">
+                  <div className={`absolute -bottom-8 left-full transform -translate-x-1/2 bg-white text-black text-xs rounded py-1 px-2 ${hovered ? 'block' : 'hidden'}`}>
                     {user.email}
                   </div>
                 </>
@@ -115,10 +116,10 @@ const Navbar = () => {
                 <>
                   <img
                     className="h-8 w-8 rounded-full"
-                    src="/profile logo.png"
+                    src="https://i.ibb.co/HpSkhkH/Screenshot-2024-07-28-215941.png"
                     alt="Profile"
                   />
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white text-black text-xs rounded py-1 px-2 hidden group-hover:block">
+                  <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white text-black text-xs rounded py-1 px-2 ${hovered ? 'block' : 'hidden'}`}>
                     {user.email}
                   </div>
                 </>

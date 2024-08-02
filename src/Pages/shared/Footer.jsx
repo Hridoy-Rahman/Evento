@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-400 p-10 bg-base-200 text-base-content ">
+    <footer className="bg-gray-200 p-10 text-base-content ">
       <div className="flex-row-reverse lg:flex lg:flex-row lg:gap-4 justify-between">
         <div className="mb-8 ">
           <p>

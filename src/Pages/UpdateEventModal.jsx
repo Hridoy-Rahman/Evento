@@ -52,12 +52,12 @@ const UpdateEventModal = ({ isOpen, onRequestClose, event, onUpdate }) => {
 
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
-      <div className="max-w-4xl mx-auto my-8 p-4 bg-banner-gradient shadow-md rounded-lg">
+      <div className="max-w-4xl mx-auto my-8 p-4 bg-gray-100 shadow-lg rounded-lg">
         <h2 className="text-center text-gradient text-3xl font-bold mb-8">
           Edit Event
         </h2>
         <form onSubmit={handleSubmit}>
-          <div className="flex flex-col lg:flex-row justify-between gap-4">
+          <div className="flex flex-col lg:flex-row justify-between gap-8">
             <div className="w-full">
               <label className="block text-gray-700">Title</label>
               <input

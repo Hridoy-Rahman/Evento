@@ -25,16 +25,16 @@ const Events = ({ limit }) => {
 
   return (
     <div>
-      <h1 className="text-5xl text-gradient font-bold text-center mt-8">
+      <h1 className="text-3xl text-gradient font-bold text-center mt-8">
         Upcoming Events
       </h1>
-      <p className="text-xl text-gradient font-semibold text-center mt-4 mb-12">
+      <p className="text-lg text-gradient font-semibold text-center mt-4 mb-12">
         Register to your desired event
       </p>
       <Carousel showThumbs={false} infiniteLoop useKeyboardArrows autoPlay className="w-full lg:w-3/4 lg:mx-auto">
         {displayedEvents.map((event) => (
           <div key={event._id} className="p-4">
-            <div className="space-y-7 pl-12 px-4 py-4  rounded-lg lg:px-12 bg-banner-gradient flex flex-col items-center">
+            <div className="space-y-7 pl-12 px-4 py-4  rounded-lg lg:px-12 bg-gray-100 flex flex-col items-center">
               <img
                 src={event.event_banner_picture}
                 alt={event.title}
