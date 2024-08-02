@@ -41,20 +41,37 @@ const Register = () => {
       });
 
       if (response.ok) {
-        console.log(response)
-        Swal.fire({
-          title: 'Registration Successful!',
-          text: `Thank you for registering for ${event.title}.`,
-          icon: 'success',
-          confirmButtonText: 'OK'
-        });
+        const data = await response.json();
+
+        if (data.message === 'You have already registered for this event.') {
+          Swal.fire({
+            title: 'Already Registered!',
+            text: `You have already registered for ${event.title}.`,
+            icon: 'info',
+            confirmButtonText: 'OK'
+          });
+        } else {
+          Swal.fire({
+            title: 'Registration Successful!',
+            text: `Thank you for registering for ${event.title}.`,
+            icon: 'success',
+            confirmButtonText: 'OK'
+          });
+        }
       } else {
         throw new Error('Registration failed');
       }
     } catch (error) {
       console.error('Error registering:', error);
+      Swal.fire({
+        title: 'Already Registered!',
+        text: `You have already registered for ${event.title}.`,
+        icon: 'info',
+        confirmButtonText: 'OK'
+      });
     }
   };
+
 
   return (
     <div className="max-w-4xl mx-auto my-8 p-4 bg-banner-gradient shadow-md rounded-lg">

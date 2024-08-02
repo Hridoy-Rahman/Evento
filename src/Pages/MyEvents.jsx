@@ -2,13 +2,17 @@ import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
+import { MdDelete, MdPeople } from "react-icons/md";
 import Swal from 'sweetalert2';
 import UpdateEventModal from "./UpdateEventModal";
+import ViewRegisteredModal from "./ViewRegisteredModal"; // Import the new modal
+
 const MyEvents = () => {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [viewRegisteredModalOpen, setViewRegisteredModalOpen] = useState(false);
+  const [selectedEventId, setSelectedEventId] = useState(null);
   const { user } = useContext(AuthContext);
   const userEmail = user.email; // Use the logged-in user's email
 
@@ -57,7 +61,7 @@ const MyEvents = () => {
         }
 
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
 
         if (data.message === 'Event deleted successfully') {
           // Remove the deleted event from state
@@ -96,6 +100,16 @@ const MyEvents = () => {
 
   const handleUpdate = (updatedEvent) => {
     setEvents(events.map(event => (event._id === updatedEvent._id ? updatedEvent : event)));
+  };
+
+  const handleViewRegistered = (eventId) => {
+    setSelectedEventId(eventId);
+    setViewRegisteredModalOpen(true);
+  };
+
+  const handleViewRegisteredModalClose = () => {
+    setViewRegisteredModalOpen(false);
+    setSelectedEventId(null);
   };
 
   return (
@@ -151,6 +165,16 @@ const MyEvents = () => {
                     Delete
                   </span>
                 </button>
+
+                <button
+                  onClick={() => handleViewRegistered(event._id)}
+                  className="relative flex items-center justify-center text-purple-900 hover:text-purple-500 font-bold py-2 w-40 rounded"
+                >
+                  <MdPeople className="text-2xl"/>
+                  <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 hidden group-hover:block bg-gray-800 text-white text-xs px-2 py-1 rounded">
+                    View Registered
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -164,6 +188,15 @@ const MyEvents = () => {
           onRequestClose={handleModalClose}
           event={selectedEvent}
           onUpdate={handleUpdate}
+        />
+      )}
+
+      {/* View Registered People Modal */}
+      {viewRegisteredModalOpen && (
+        <ViewRegisteredModal
+          isOpen={viewRegisteredModalOpen}
+          onClose={handleViewRegisteredModalClose}
+          eventId={selectedEventId}
         />
       )}
     </div>
