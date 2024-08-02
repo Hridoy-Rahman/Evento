@@ -58,6 +58,9 @@ const AllEvents = ({ limit }) => {
                 <p className="text-gray-800">
                   <strong>Contact:</strong> {event.contact_no}
                 </p>
+                <p className="text-gray-800">
+                  <strong>Available Seats:</strong> {event.available_seats}
+                </p>
               </div>
               <Link
                 to={`/events/${event._id}`}

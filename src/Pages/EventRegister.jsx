@@ -6,7 +6,7 @@ import { AuthContext } from '../Providers/AuthProvider';
 const Register = () => {
   const { event } = useLoaderData();
   const { user } = useContext(AuthContext);
-  console.log(user.email,event._id)
+  // console.log(user.email,event._id)
 
 
   const [formData, setFormData] = useState({
