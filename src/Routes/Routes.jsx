@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         path: "events/:id",
         element: <PrivateRoute><EventDetails /></PrivateRoute>,
         loader: async ({ params }) => {
-          const response = await fetch('http://localhost:8000/events');
+          const response = await fetch('https://evento-backend-six.vercel.app/events');
           const data = await response.json();
           const event = data.find(event => event._id === params.id);
           if (!event) {
@@ -90,7 +90,7 @@ const router = createBrowserRouter([
           </>
         ),
         loader: async ({ params }) => {
-          const response = await fetch('http://localhost:8000/events/');
+          const response = await fetch('https://evento-backend-six.vercel.app/events/');
           const data = await response.json();
           const event = data.find((event) => event._id === params.eventId);
           if (!event) {
