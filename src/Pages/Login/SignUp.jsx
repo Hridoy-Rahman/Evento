@@ -11,6 +11,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  const from = location.state?.from?.pathname || '/'
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -48,7 +49,7 @@ const SignUp = () => {
         localStorage.setItem("users", JSON.stringify(users));
 
         if (location.state && location.state.from) {
-          navigate(location.state.from);
+          navigate(from,{replace : true});
         } else {
           navigate("/");
         }
@@ -62,7 +63,7 @@ const SignUp = () => {
   return (
     <div className="mb-12">
       <div className="p-6 lg:p-12 flex flex-col items-center">
-        <div className="bg-banner-gradient card flex-shrink-0 w-full max-w-sm shadow-2xl p-10 rounded-2xl">
+        <div className="bg-gray-200 card flex-shrink-0 w-full max-w-sm shadow-2xl p-10 rounded-2xl">
           <div className="card-body">
             <h1 className="text-5xl text-purple-800 font-bold mb-8 text-center">
               Sign Up

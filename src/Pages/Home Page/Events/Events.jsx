@@ -7,9 +7,13 @@ const Events = ({ limit }) => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/events")
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch("https://evento-backend-six.vercel.app/events");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
         const currentDate = new Date();
         // Filter events to include only upcoming events
         const upcomingEvents = data.filter(event => new Date(event.date) >= currentDate);
@@ -17,7 +21,12 @@ const Events = ({ limit }) => {
         const sortedEvents = upcomingEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
         // Set events state
         setEvents(sortedEvents);
-      });
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
+    };
+
+    fetchEvents();
   }, []);
 
   // Take the first 'limit' events from the sorted upcoming events

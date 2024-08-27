@@ -28,7 +28,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8000/register', {
+      const response = await fetch('https://evento-backend-six.vercel.app/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

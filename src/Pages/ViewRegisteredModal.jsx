@@ -11,7 +11,7 @@ const ViewRegisteredModal = ({ eventId, isOpen, onClose }) => {
         setLoading(true);
         try {
           const response = await fetch(
-            `http://localhost:8000/registrations/event/${eventId}`
+            `https://evento-backend-six.vercel.app/registrations/event/${eventId}`
           );
           if (response.ok) {
             const data = await response.json();

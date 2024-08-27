@@ -7,6 +7,7 @@ import GoogleLogin from "./GoogleLogin";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const from = location.state?.from?.pathname || '/'
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [error, setError] = useState("");
@@ -28,7 +29,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         if (location.state && location.state.from) {
-          navigate(location.state.from);
+          navigate(from,{replace : true});
         } else {
           navigate("/");
         }
@@ -42,7 +43,7 @@ const Login = () => {
   return (
     <div className="mb-12">
       <div className="p-6 lg:p-12 flex flex-col items-center">
-        <div className="bg-banner-gradient card flex-shrink-0 w-full max-w-sm shadow-2xl p-10 rounded-2xl">
+        <div className="bg-gray-200 card flex-shrink-0 w-full max-w-sm shadow-2xl p-10 rounded-2xl">
           <div className="card-body">
             <h1 className="text-5xl font-bold mb-8 text-center text-purple-800">
               Login

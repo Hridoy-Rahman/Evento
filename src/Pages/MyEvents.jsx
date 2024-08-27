@@ -13,20 +13,22 @@ const MyEvents = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viewRegisteredModalOpen, setViewRegisteredModalOpen] = useState(false);
   const [selectedEventId, setSelectedEventId] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
-  const userEmail = user.email; // Use the logged-in user's email
+  const userEmail = user.email; 
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/events/user/${userEmail}`
+          `https://evento-backend-six.vercel.app/events/user/${userEmail}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
         setEvents(data);
+        setLoading(false)
       } catch (error) {
         console.error("Error fetching user events:", error);
       }
@@ -49,7 +51,7 @@ const MyEvents = () => {
 
       if (result.isConfirmed) {
         // Send delete request
-        const response = await fetch(`http://localhost:8000/events/${id}`, {
+        const response = await fetch(`https://evento-backend-six.vercel.app/events/${id}`, {
           method: 'DELETE',
         });
 
@@ -117,6 +119,11 @@ const MyEvents = () => {
       <h1 className="text-3xl text-gradient font-bold text-center mt-8 mb-12">
         Your Created Events
       </h1>
+      {loading ? (
+        <div className="flex justify-center items-center">
+          <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-10 w-10"></div>
+        </div>
+      ) : (
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 lg:px-12">
         {events.map((event) => (
           <div key={event._id} className="p-4">
@@ -180,6 +187,7 @@ const MyEvents = () => {
           </div>
         ))}
       </div>
+      )}
 
       {/* Edit Event Modal */}
       {selectedEvent && (

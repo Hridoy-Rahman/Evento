@@ -106,9 +106,9 @@ const Navbar = () => {
                   <img
                     className="h-8 w-8 rounded-full"
                     src={user.photoURL}
-                    alt={user.name}
+                    alt={user.email}
                   />
-                  <div className={`absolute -bottom-8 left-full transform -translate-x-1/2 bg-white text-black text-xs rounded py-1 px-2 ${hovered ? 'block' : 'hidden'}`}>
+                  <div className={`absolute -bottom-8 left-0 transform -translate-x-1/2 bg-white text-black text-xs rounded py-1 px-2 ${hovered ? 'block' : 'hidden'}`}>
                     {user.email}
                   </div>
                 </>

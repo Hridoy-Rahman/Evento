@@ -17,7 +17,7 @@ const UpdateEventModal = ({ isOpen, onRequestClose, event, onUpdate }) => {
     const { _id, ...eventWithoutId } = updatedEvent;
 
     try {
-      const response = await fetch(`http://localhost:8000/events/${_id}`, {
+      const response = await fetch(`https://evento-backend-six.vercel.app/events/${_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
