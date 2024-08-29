@@ -42,7 +42,7 @@ const AddEvent = () => {
         const formDataWithEmail = { ...formData, user_email: user.email };
 
         try {
-            const response = await fetch('https://evento-backend-6zfmogpnl-hridoyrahmans-projects.vercel.app/events', {
+            const response = await fetch('https://evento-backend-six.vercel.app/events', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
