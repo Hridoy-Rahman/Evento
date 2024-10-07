@@ -122,7 +122,7 @@
     {
       "event_id": "E007",
       "title": "Music Festival",
-      "category": "Festival",
+      "category": "Cultural",
       "event_banner_picture": "./4.png",
       "university_name": "Music University",
       "events": ["Concerts", "Workshops", "Open Mic"],
@@ -142,7 +142,7 @@
     {
       "event_id": "E008",
       "title": "Business Leadership Summit",
-      "category": "Summit",
+      "category": "Business",
       "event_banner_picture": "./4.png",
       "university_name": "Business University",
       "events": ["Keynotes", "Panel Discussions", "Workshops"],
@@ -162,7 +162,7 @@
     {
       "event_id": "E009",
       "title": "Film Festival",
-      "category": "Festival",
+      "category": "Cultural",
       "event_banner_picture": "./4.png",
       "university_name": "Film University",
       "events": ["Screenings", "Q&A Sessions", "Workshops"],
@@ -222,7 +222,7 @@
     {
       "event_id": "E012",
       "title": "Cultural Fest",
-      "category": "Festival",
+      "category": "Cultural",
       "event_banner_picture": "./2.png",
       "university_name": "Cultural University",
       "events": ["Dance Performances", "Food Stalls", "Art Exhibitions"],
@@ -262,7 +262,7 @@
     {
       "event_id": "E014",
       "title": "Entrepreneurship Bootcamp",
-      "category": "Bootcamp",
+      "category": "Business ",
       "event_banner_picture": "./1.png",
       "university_name": "Business School",
       "events": ["Workshops", "Mentorship", "Pitch Sessions"],
@@ -282,7 +282,7 @@
     {
       "event_id": "E015",
       "title": "Literary Fest",
-      "category": "Festival",
+      "category": "Cultural",
       "event_banner_picture": "./3.png",
       "university_name": "Literature University",
       "events": ["Author Readings", "Book Signings", "Workshops"],
@@ -382,7 +382,7 @@
     {
       "event_id": "E020",
       "title": "Music Fest",
-      "category": "Festival",
+      "category": "Cultural",
       "event_banner_picture": "https://example.com/images/music-fest.jpg",
       "university_name": "Music University",
       "events": ["Concerts", "Workshops", "Jam Sessions"],
