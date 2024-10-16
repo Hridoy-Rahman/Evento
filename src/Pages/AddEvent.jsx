@@ -15,7 +15,7 @@ const AddEvent = () => {
     time: "",
     venue: "",
     address: "",
-    available_seats: "",
+    available_seats: 0,
     contact_no: "",
     contact_email: "",
     registration_fee: "",
@@ -42,16 +42,13 @@ const AddEvent = () => {
     const formDataWithEmail = { ...formData, user_email: user.email };
 
     try {
-      const response = await fetch(
-        "https://evento-backend-six.vercel.app/events",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formDataWithEmail),
-        }
-      );
+      const response = await fetch("https://evento-backend-six.vercel.app/events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formDataWithEmail),
+      });
 
       // Check if the response is OK (status code 2xx)
       if (!response.ok) {
@@ -242,10 +239,13 @@ const AddEvent = () => {
           <div>
             <label className="block text-gray-700">Available Seats</label>
             <input
-              type="text"
+              type="number"
               name="available_seats"
               value={formData.available_seats}
-              onChange={handleChange}
+              onChange={(e) => {
+                const value = Math.max(0, Number(e.target.value));
+                setFormData({ ...formData, available_seats: value });
+              }}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm h-10"
               required
             />
